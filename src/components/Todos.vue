@@ -8,6 +8,7 @@
         :key="index"
       >
         <input
+          ref="completed"
           class="checkbox"
           type="checkbox"
           :id="todo.id"
@@ -31,7 +32,7 @@
           type="checkbox"
           :id="todo.id"
           v-model="todo.completed"
-          @change="clicked($event)"
+          disabled
         />
         <ul class="todo-list">
           <li class="list">{{ todo.todo }}</li>
@@ -46,19 +47,19 @@ import { mapActions, mapState } from "vuex";
 
 export default {
   name: "TodosComponent",
-  mounted() {
-    this.getTodos();
-  },
+  mounted() {},
   computed: {
     ...mapState({
       todos: (state) => state.todoModule.todo,
-      loading: (state) => state.loading,
     }),
   },
   methods: {
-    ...mapActions("todoModule", ["getTodos", "toggleCompleted"]),
+    ...mapActions("todoModule", ["toggleCompleted"]),
 
     clicked(event) {
+      if (this.$refs.completed.checked === false) {
+        return;
+      }
       let id = event.target.id;
       this.toggleCompleted(id);
     },
