@@ -22,9 +22,7 @@ import { mapActions, mapState } from "vuex";
 
 export default {
   name: "TodoInputComponent",
-  props: {
-    msg: String,
-  },
+
   data() {
     return {
       whiteSpace: /^\s+$/,
@@ -67,6 +65,14 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media screen and (max-width: 900px) {
+      width: 75%;
+    }
+
+    @media screen and (max-width: 680px) {
+      width: 90%;
+    }
 
     .label {
       color: var(--labelColor);

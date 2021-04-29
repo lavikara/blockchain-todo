@@ -73,11 +73,30 @@ export default {
   grid-template-columns: repeat(2, 1fr);
   column-gap: 6rem;
 
+  @media screen and (max-width: 1200px) {
+    padding: 0 5rem;
+    column-gap: 2rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 2rem;
+  }
+
+  @media screen and (max-width: 680px) {
+    padding: 0 1rem;
+  }
+
   .pending,
   .completed {
     @include fadeIn;
     border-radius: 14px;
     padding: 1rem 2rem;
+
+    @media screen and (max-width: 1200px) {
+      padding: 1rem;
+    }
 
     .label {
       font-size: 1.2rem;
@@ -123,6 +142,22 @@ export default {
             left: 7px;
             top: 4px;
             transform: rotate(var(--r, 20deg));
+
+            @media screen and (max-width: 1200px) {
+              left: 5px;
+            }
+
+            @media screen and (max-width: 900px) {
+              left: 7px;
+            }
+
+            @media screen and (max-width: 680px) {
+              left: 5px;
+            }
+
+            @media screen and (max-width: 400px) {
+              left: 4px;
+            }
           }
 
           &:checked {
@@ -161,6 +196,7 @@ export default {
 
       .todo-list {
         .list {
+          text-align: left;
           font-size: 1.1rem;
           margin: 0.5rem 0;
         }

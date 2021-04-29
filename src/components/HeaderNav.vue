@@ -21,11 +21,11 @@
           <input type="checkbox" id="profile2" />
           <img alt="Vue logo" class="logo" src="@/assets/img/logo.png" />
           <ul>
-            <li>
+            <li v-if="user.userAccount">
               <p>User</p>
               <h3>{{ user.userAccount }}</h3>
             </li>
-            <li>
+            <li v-if="user.userBalance">
               <p>Balance</p>
               <h3>{{ user.userBalance }} ETH</h3>
             </li>
@@ -68,11 +68,25 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 3rem 0 1rem 0;
   margin-bottom: 2rem;
   z-index: 10;
 
+  @media screen and (max-width: 1200px) {
+    padding: 3rem 5rem 1rem 5rem;
+  }
+
+  @media screen and (max-width: 680px) {
+    padding: 3rem 1rem 1rem 1rem;
+  }
+
   .left-side {
+    flex: 1;
+
+    @media screen and (max-width: 1200px) {
+      flex: 3;
+    }
+
     ul {
       display: flex;
 
@@ -88,14 +102,16 @@ export default {
   }
 
   .right-side {
+    flex: 1;
+
     .logo-container {
       .profile-dropdown {
         position: relative;
 
         input[type="checkbox"] {
           position: absolute;
-          top: 0;
-          left: 0;
+          top: -1.4rem;
+          right: 0.3rem;
           width: 2rem;
           height: 2rem;
           opacity: 0;
@@ -103,9 +119,17 @@ export default {
 
           &:checked {
             & ~ ul {
-              display: block;
+              display: flex;
+              flex-direction: column;
             }
           }
+        }
+
+        .logo {
+          position: absolute;
+          top: -1.6rem;
+          right: 0rem;
+          z-index: -10;
         }
 
         ul {
@@ -116,7 +140,15 @@ export default {
           list-style: none;
           background: var(--magenta);
           padding: 1rem 0;
+          margin-top: 2rem;
           border-radius: 10px;
+          // white-space: nowrap;
+          overflow: hidden;
+          // text-overflow: ellipsis;
+
+          @media screen and (max-width: 680px) {
+            width: 90vw;
+          }
 
           li {
             display: flex;
@@ -129,8 +161,16 @@ export default {
             }
 
             h3 {
+              text-align: left;
               color: var(--offWhite);
               font-weight: 500;
+
+              @media screen and (max-width: 680px) {
+                font-size: 1rem;
+                -ms-word-break: break-all;
+                word-break: break-all;
+                word-break: break-word;
+              }
             }
           }
         }
