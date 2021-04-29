@@ -1,3 +1,9 @@
 export default {
-  loading: false,
+  contracts: {
+    userContract: {},
+    mainContract: {},
+    todoContract: {},
+  },
+  contractName: "",
+  loading: true,
 };
