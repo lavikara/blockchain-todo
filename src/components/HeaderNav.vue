@@ -3,11 +3,12 @@
     <div class="left-side">
       <ul>
         <li>
-          <router-link to="/">
-            Todos
-          </router-link>
+          {{ contractName }}
         </li>
-        <li>
+        <li v-if="user.userAccount">
+          <router-link to="/"> Hi, {{ user.userName }} </router-link>
+        </li>
+        <li v-if="!user.userAccount">
           <router-link to="/register">
             Register
           </router-link>
@@ -54,10 +55,9 @@ export default {
   computed: {
     ...mapState({
       user: (state) => state.userModule.user,
+      contractName: (state) => state.contractName,
     }),
   },
-  mounted() {},
-  methods: {},
 };
 </script>
 
