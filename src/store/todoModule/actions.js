@@ -1,14 +1,11 @@
-import todos from "../../../contract/build/contracts/TodoContract.json";
 import myUtils from "../../utils/myUtils";
-const contractAddress = todos.networks[5777].address;
-const abi = todos.abi;
 
 export const getTodos = async ({ dispatch, commit, rootState }) => {
-  commit("SET_LOADING", true, { root: true });
   let pendingTodos = [];
   let completedTodos = [];
   const userAccount = rootState.userModule.user.userAccount;
-  const contract = new web3.eth.Contract(abi, contractAddress);
+  const contract = rootState.contracts.todoContract;
+
   let todoCount = await contract.methods.todoCount().call();
   for (let i = 1; i <= todoCount; i++) {
     await contract.methods.todos(i).call(
@@ -30,13 +27,14 @@ export const getTodos = async ({ dispatch, commit, rootState }) => {
           dispatch("userModule/getBlockCount", {}, { root: true });
           dispatch("userModule/getUserBalance", {}, { root: true });
           result.todo = myUtils.setUppercase(result.todo);
-          if (!result.completed) {
+          let todoOwner = result.sender.toLowerCase();
+          if (!result.completed && todoOwner === userAccount) {
             pendingTodos.push({
               id: result.id,
               todo: result.todo,
               completed: result.completed,
             });
-          } else if (result.completed) {
+          } else if (result.completed && todoOwner === userAccount) {
             completedTodos.push({
               id: result.id,
               todo: result.todo,
@@ -49,12 +47,11 @@ export const getTodos = async ({ dispatch, commit, rootState }) => {
   }
   commit("SET_PENDING_TODO", { pendingTodos });
   commit("SET_COMPLETED_TODO", { completedTodos });
-  commit("SET_LOADING", false, { root: true });
 };
 
 export const submitTodo = async ({ dispatch, commit, state, rootState }) => {
   const userAccount = rootState.userModule.user.userAccount;
-  const contract = new web3.eth.Contract(abi, contractAddress);
+  const contract = rootState.contracts.todoContract;
   await contract.methods
     .createTodo(state.todo.newTodo)
     .send({
@@ -104,7 +101,8 @@ export const toggleCompleted = async (
   payload
 ) => {
   const userAccount = rootState.userModule.user.userAccount;
-  const contract = new web3.eth.Contract(abi, contractAddress);
+  const contract = rootState.contracts.todoContract;
+
   await contract.methods
     .toggleCompleted(payload)
     .send({
@@ -149,4 +147,8 @@ export const toggleCompleted = async (
       dispatch("getTodos");
     });
   commit("CLEAR_NEW_TODO", { newTodo: "" });
+};
+
+export const setLoading = ({ commit }, payload) => {
+  commit("SET_LOADING", payload);
 };

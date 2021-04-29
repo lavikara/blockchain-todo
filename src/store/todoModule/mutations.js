@@ -1,3 +1,7 @@
+export const SET_LOADING = (state, payload) => {
+  state.loading = payload;
+};
+
 export const SET_NEW_TODO = (state, payload) => {
   state.todo.newTodo = payload.newTodo;
 };

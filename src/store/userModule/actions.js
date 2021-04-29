@@ -1,18 +1,61 @@
-export const getUserAccount = async ({ dispatch, commit }) => {
-  commit("SET_LOADING", true, { root: true });
+import myUtils from "../../utils/myUtils";
+import router from "../../router";
+
+export const getUserAccount = async ({ dispatch, commit, rootState }) => {
   const accounts = await ethereum.request({
     method: "eth_accounts",
   });
-  const userAccount = accounts[0];
-  commit("SET_USER_ACCOUNT", { userAccount });
-  dispatch("getBlockCount");
-  dispatch("getUserBalance");
-  dispatch("setChain");
-  commit("SET_LOADING", false, { root: true });
+  const userAddress = accounts[0];
+  const contract = rootState.contracts.userContract;
+  await contract.methods.users(userAddress).call(function(err, result) {
+    if (err) {
+      dispatch(
+        "notificationModule/showModal",
+        {
+          description: err.message,
+          display: true,
+          type: "error",
+        },
+        { root: true }
+      );
+    } else if (result.userAddress.includes("0x0")) {
+      dispatch(
+        "notificationModule/showModal",
+        {
+          description: "Login or signup to start storing todos",
+          display: true,
+          type: "error",
+        },
+        { root: true }
+      );
+      commit("SET_USER_ACCOUNT", { userAccount: "" });
+      router.push("/register");
+      dispatch("getContractName", {}, { root: true });
+      commit("SET_USER_BALANCE", { userBalance: "" });
+      dispatch("getBlockCount");
+      dispatch("setChain");
+      dispatch("setLoading", false, { root: true });
+      return;
+    } else {
+      const userAccount = result.userAddress.toLowerCase();
+      const userName = myUtils.setUppercase(result.userName);
+      commit("SET_USER_ACCOUNT", { userAccount });
+      commit("SET_USER_NAME", { userName });
+      router.push("/");
+    }
+    dispatch("getBlockCount");
+    dispatch("getUserBalance");
+    dispatch("setChain");
+    dispatch("todoModule/getTodos", {}, { root: true });
+    dispatch("setLoading", false, { root: true });
+    dispatch("getContractName", {}, { root: true });
+  });
 };
 
 export const getUserBalance = async ({ dispatch, commit, state }) => {
-  commit("SET_LOADING", true, { root: true });
+  if (!state.user.userAccount) {
+    return;
+  }
   await web3.eth.getBalance(state.user.userAccount, function(err, newBalance) {
     if (err) {
       dispatch(
@@ -29,7 +72,6 @@ export const getUserBalance = async ({ dispatch, commit, state }) => {
       commit("SET_USER_BALANCE", { userBalance });
     }
   });
-  commit("SET_LOADING", false, { root: true });
 };
 
 // export const registerUser = async ({ dispatch, commit, state }) => {
@@ -59,7 +101,6 @@ export const getBlockCount = async ({ commit }) => {
 };
 
 export const setChain = async ({ dispatch, commit }) => {
-  commit("SET_LOADING", true, { root: true });
   let chainId = await ethereum.request({
     method: "eth_chainId",
   });
@@ -89,12 +130,14 @@ export const setChain = async ({ dispatch, commit }) => {
   }
   commit("SET_CHAIN", { chainId });
   dispatch("getUserBalance");
-  commit("SET_LOADING", false, { root: true });
 };
 
 export const setUserAccount = ({ dispatch, commit }, userAccount) => {
-  commit("SET_LOADING", true, { root: true });
   commit("SET_USER_ACCOUNT", { userAccount });
-  dispatch("getUserBalance");
-  commit("SET_LOADING", false, { root: true });
+  dispatch("getUserAccount");
+  dispatch("todoModule/getTodos", {}, { root: true });
+};
+
+export const setLoading = ({ commit }, payload) => {
+  commit("SET_LOADING", payload);
 };
