@@ -22,7 +22,7 @@ export const getUserAccount = async ({ dispatch, commit, rootState }) => {
       dispatch(
         "notificationModule/showModal",
         {
-          description: "Login or signup to start storing todos",
+          description: "Register to get access",
           display: true,
           type: "error",
         },
@@ -32,6 +32,7 @@ export const getUserAccount = async ({ dispatch, commit, rootState }) => {
       router.push("/register");
       dispatch("getContractName", {}, { root: true });
       commit("SET_USER_BALANCE", { userBalance: "" });
+      commit("SET_USER_NAME", { userName: "" });
       dispatch("getBlockCount");
       dispatch("setChain");
       dispatch("setLoading", false, { root: true });
@@ -74,26 +75,63 @@ export const getUserBalance = async ({ dispatch, commit, state }) => {
   });
 };
 
-// export const registerUser = async ({ dispatch, commit, state }) => {
-//   commit("SET_LOADING", true, { root: true });
-//   await web3.eth.getBalance(state.user.userAccount, function(err, newBalance) {
-//     if (err) {
-//       dispatch(
-//         "notificationModule/showModal",
-//         {
-//           description: err.message,
-//           display: true,
-//           type: "error",
-//         },
-//         { root: true }
-//       );
-//     } else {
-//       const userBalance = parseFloat(web3.utils.fromWei(newBalance, "ether"));
-//       commit("SET_USER_BALANCE", { userBalance });
-//     }
-//   });
-//   commit("SET_LOADING", false, { root: true });
-// };
+export const registerUser = async ({ dispatch, commit, state, rootState }) => {
+  const accounts = await ethereum.request({
+    method: "eth_accounts",
+  });
+  const userAccount = accounts[0];
+  const userName = state.user.userName;
+  const contract = rootState.contracts.userContract;
+  await contract.methods
+    .register(userName)
+    .send({
+      from: userAccount,
+    })
+    .then((tx) => {
+      const isMined = tx.events.Registered.type;
+      if (isMined === "mined") {
+        dispatch("getUserAccount");
+        dispatch(
+          "notificationModule/showToast",
+          {
+            description: isMined,
+            display: true,
+            type: "success",
+          },
+          {
+            root: true,
+          }
+        );
+      } else {
+        dispatch(
+          "notificationModule/showModal",
+          {
+            description: isMined,
+            display: true,
+            type: "error",
+          },
+          {
+            root: true,
+          }
+        );
+        commit("SET_USER_NAME", { userName: "" });
+      }
+    })
+    .catch((err) => {
+      dispatch(
+        "notificationModule/showModal",
+        {
+          description: err.message,
+          display: true,
+          type: "error",
+        },
+        {
+          root: true,
+        }
+      );
+      commit("SET_USER_NAME", { userName: "" });
+    });
+};
 
 export const getBlockCount = async ({ commit }) => {
   const blockCount = await web3.eth.getBlockNumber();
