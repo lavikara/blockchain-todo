@@ -1,5 +1,5 @@
 <template>
-  <div id="todo-input" class="container" v-if="!loading">
+  <div id="todo-input" class="container">
     <div class="form-container">
       <label class="label" for="todo-input">New task</label>
       <form class="form" @submit.prevent="submitTodo()">
@@ -33,7 +33,6 @@ export default {
   computed: {
     ...mapState({
       todo: (state) => state.todoModule.todo,
-      loading: (state) => state.loading,
     }),
   },
   mounted() {},
