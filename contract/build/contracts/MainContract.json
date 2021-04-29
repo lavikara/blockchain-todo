@@ -19,31 +19,17 @@
       "stateMutability": "view",
       "type": "function",
       "constant": true
-    },
-    {
-      "inputs": [],
-      "name": "owner",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"contractName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/temi/blockchain/todo-app/contract/contracts/MainContract.sol\":\"MainContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/temi/blockchain/todo-app/contract/contracts/MainContract.sol\":{\"keccak256\":\"0x6a0e13a9594d4f17551bacf04f127d4c1533ecc331989cd13136c8bbd1b5bead\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f7901dbf04262e220fc881dca9ed12b548cf5763c2bfef94877f860202e78b04\",\"dweb:/ipfs/QmQPDqtyQmX99N4JW6UGbgR6KHUmizhkuBB4hQTFK76LZk\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040518060400160405280600881526020017f4c617669546f646f0000000000000000000000000000000000000000000000008152506001908051906020019061009c9291906100a2565b5061014d565b828054600181600116156101000203166002900490600052602060002090601f0160209004810192826100d8576000855561011f565b82601f106100f157805160ff191683800117855561011f565b8280016001018555821561011f579182015b8281111561011e578251825591602001919060010190610103565b5b50905061012c9190610130565b5090565b5b80821115610149576000816000905550600101610131565b5090565b6101ea8061015c6000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806375d0c0dc1461003b5780638da5cb5b146100be575b600080fd5b6100436100f2565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610083578082015181840152602081019050610068565b50505050905090810190601f1680156100b05780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100c6610190565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101885780601f1061015d57610100808354040283529160200191610188565b820191906000526020600020905b81548152906001019060200180831161016b57829003601f168201915b505050505081565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea264697066735822122058a8859de92bdc868088eeff22cff9ce45944a4d3e3d5487560afd85625185d664736f6c63430007060033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806375d0c0dc1461003b5780638da5cb5b146100be575b600080fd5b6100436100f2565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610083578082015181840152602081019050610068565b50505050905090810190601f1680156100b05780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100c6610190565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101885780601f1061015d57610100808354040283529160200191610188565b820191906000526020600020905b81548152906001019060200180831161016b57829003601f168201915b505050505081565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea264697066735822122058a8859de92bdc868088eeff22cff9ce45944a4d3e3d5487560afd85625185d664736f6c63430007060033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"contractName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/temi/blockchain/todo-app/contract/contracts/MainContract.sol\":\"MainContract\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/temi/blockchain/todo-app/contract/contracts/MainContract.sol\":{\"keccak256\":\"0x9e3dbd627776cfaf4f8fd7f0bb7fa6b92e164562d523bc3417a5436c32dea828\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0b0be06a84c3f3e30fa2838ad80727ac56fc3a7d4845b05cca67c366178c9201\",\"dweb:/ipfs/QmTxhKfKAcRddDn1SwgiVTLGKKzhVTjcN8UT7Hrj1RrkpE\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040518060400160405280600881526020017f4c617669546f646f0000000000000000000000000000000000000000000000008152506001908051906020019061009c9291906100a2565b5061014d565b828054600181600116156101000203166002900490600052602060002090601f0160209004810192826100d8576000855561011f565b82601f106100f157805160ff191683800117855561011f565b8280016001018555821561011f579182015b8281111561011e578251825591602001919060010190610103565b5b50905061012c9190610130565b5090565b5b80821115610149576000816000905550600101610131565b5090565b6101878061015c6000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c806375d0c0dc14610030575b600080fd5b6100386100b3565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561007857808201518184015260208101905061005d565b50505050905090810190601f1680156100a55780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101495780601f1061011e57610100808354040283529160200191610149565b820191906000526020600020905b81548152906001019060200180831161012c57829003601f168201915b50505050508156fea264697066735822122056ebae7e4039308a4997672cf6dbe4f4d60000ec00560824bee4bbbcc1daa79764736f6c63430007060033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c806375d0c0dc14610030575b600080fd5b6100386100b3565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561007857808201518184015260208101905061005d565b50505050905090810190601f1680156100a55780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101495780601f1061011e57610100808354040283529160200191610149565b820191906000526020600020905b81548152906001019060200180831161012c57829003601f168201915b50505050508156fea264697066735822122056ebae7e4039308a4997672cf6dbe4f4d60000ec00560824bee4bbbcc1daa79764736f6c63430007060033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "65:173:0:-:0;;;152:84;;;;;;;;;;184:10;176:5;;:18;;;;;;;;;;;;;;;;;;204:25;;;;;;;;;;;;;;;;;:12;:25;;;;;;;;;;;;:::i;:::-;;65:173;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
-  "deployedSourceMap": "65:173:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;119:26;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;93:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;119:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;93:20::-;;;;;;;;;;;;:::o",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\ncontract MainContract {\n    address public owner;\n    string public contractName;\n\n    constructor() {\n        owner = msg.sender;\n        contractName = \"LaviTodo\";\n    }\n}",
+  "sourceMap": "65:166:0:-:0;;;145:84;;;;;;;;;;177:10;169:5;;:18;;;;;;;;;;;;;;;;;;197:25;;;;;;;;;;;;;;;;;:12;:25;;;;;;;;;;;;:::i;:::-;;65:166;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "65:166:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;112:26;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.7.0 <0.9.0;\n\ncontract MainContract {\n    address owner;\n    string public contractName;\n\n    constructor() {\n        owner = msg.sender;\n        contractName = \"LaviTodo\";\n    }\n}",
   "sourcePath": "/Users/temi/blockchain/todo-app/contract/contracts/MainContract.sol",
   "ast": {
     "absolutePath": "/Users/temi/blockchain/todo-app/contract/contracts/MainContract.sol",
@@ -85,13 +71,12 @@
         "nodes": [
           {
             "constant": false,
-            "functionSelector": "8da5cb5b",
             "id": 3,
             "mutability": "mutable",
             "name": "owner",
             "nodeType": "VariableDeclaration",
             "scope": 19,
-            "src": "93:20:0",
+            "src": "93:13:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -109,7 +94,7 @@
                 "typeString": "address"
               }
             },
-            "visibility": "public"
+            "visibility": "internal"
           },
           {
             "constant": false,
@@ -119,7 +104,7 @@
             "name": "contractName",
             "nodeType": "VariableDeclaration",
             "scope": 19,
-            "src": "119:26:0",
+            "src": "112:26:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -130,7 +115,7 @@
               "id": 4,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "119:6:0",
+              "src": "112:6:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -142,7 +127,7 @@
             "body": {
               "id": 17,
               "nodeType": "Block",
-              "src": "166:70:0",
+              "src": "159:70:0",
               "statements": [
                 {
                   "expression": {
@@ -157,7 +142,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 3,
-                      "src": "176:5:0",
+                      "src": "169:5:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -172,7 +157,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 4294967281,
-                        "src": "184:3:0",
+                        "src": "177:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
@@ -185,13 +170,13 @@
                       "lValueRequested": false,
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
-                      "src": "184:10:0",
+                      "src": "177:10:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address_payable",
                         "typeString": "address payable"
                       }
                     },
-                    "src": "176:18:0",
+                    "src": "169:18:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -199,7 +184,7 @@
                   },
                   "id": 12,
                   "nodeType": "ExpressionStatement",
-                  "src": "176:18:0"
+                  "src": "169:18:0"
                 },
                 {
                   "expression": {
@@ -214,7 +199,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 5,
-                      "src": "204:12:0",
+                      "src": "197:12:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
                         "typeString": "string storage ref"
@@ -231,14 +216,14 @@
                       "kind": "string",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "219:10:0",
+                      "src": "212:10:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_stringliteral_9b0d006b577294ecac9f46460a2f06a8b82f8161853c173e874f61696d233186",
                         "typeString": "literal_string \"LaviTodo\""
                       },
                       "value": "LaviTodo"
                     },
-                    "src": "204:25:0",
+                    "src": "197:25:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
@@ -246,7 +231,7 @@
                   },
                   "id": 16,
                   "nodeType": "ExpressionStatement",
-                  "src": "204:25:0"
+                  "src": "197:25:0"
                 }
               ]
             },
@@ -260,26 +245,26 @@
               "id": 6,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "163:2:0"
+              "src": "156:2:0"
             },
             "returnParameters": {
               "id": 7,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "166:0:0"
+              "src": "159:0:0"
             },
             "scope": 19,
-            "src": "152:84:0",
+            "src": "145:84:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
         "scope": 20,
-        "src": "65:173:0"
+        "src": "65:166:0"
       }
     ],
-    "src": "32:206:0"
+    "src": "32:199:0"
   },
   "legacyAST": {
     "attributes": {
@@ -329,14 +314,13 @@
           {
             "attributes": {
               "constant": false,
-              "functionSelector": "8da5cb5b",
               "mutability": "mutable",
               "name": "owner",
               "scope": 19,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "address",
-              "visibility": "public"
+              "visibility": "internal"
             },
             "children": [
               {
@@ -352,7 +336,7 @@
             ],
             "id": 3,
             "name": "VariableDeclaration",
-            "src": "93:20:0"
+            "src": "93:13:0"
           },
           {
             "attributes": {
@@ -374,12 +358,12 @@
                 },
                 "id": 4,
                 "name": "ElementaryTypeName",
-                "src": "119:6:0"
+                "src": "112:6:0"
               }
             ],
             "id": 5,
             "name": "VariableDeclaration",
-            "src": "119:26:0"
+            "src": "112:26:0"
           },
           {
             "attributes": {
@@ -405,7 +389,7 @@
                 "children": [],
                 "id": 6,
                 "name": "ParameterList",
-                "src": "163:2:0"
+                "src": "156:2:0"
               },
               {
                 "attributes": {
@@ -416,7 +400,7 @@
                 "children": [],
                 "id": 7,
                 "name": "ParameterList",
-                "src": "166:0:0"
+                "src": "159:0:0"
               },
               {
                 "children": [
@@ -443,7 +427,7 @@
                             },
                             "id": 8,
                             "name": "Identifier",
-                            "src": "176:5:0"
+                            "src": "169:5:0"
                           },
                           {
                             "attributes": {
@@ -466,22 +450,22 @@
                                 },
                                 "id": 9,
                                 "name": "Identifier",
-                                "src": "184:3:0"
+                                "src": "177:3:0"
                               }
                             ],
                             "id": 10,
                             "name": "MemberAccess",
-                            "src": "184:10:0"
+                            "src": "177:10:0"
                           }
                         ],
                         "id": 11,
                         "name": "Assignment",
-                        "src": "176:18:0"
+                        "src": "169:18:0"
                       }
                     ],
                     "id": 12,
                     "name": "ExpressionStatement",
-                    "src": "176:18:0"
+                    "src": "169:18:0"
                   },
                   {
                     "children": [
@@ -506,7 +490,7 @@
                             },
                             "id": 13,
                             "name": "Identifier",
-                            "src": "204:12:0"
+                            "src": "197:12:0"
                           },
                           {
                             "attributes": {
@@ -521,37 +505,37 @@
                             },
                             "id": 14,
                             "name": "Literal",
-                            "src": "219:10:0"
+                            "src": "212:10:0"
                           }
                         ],
                         "id": 15,
                         "name": "Assignment",
-                        "src": "204:25:0"
+                        "src": "197:25:0"
                       }
                     ],
                     "id": 16,
                     "name": "ExpressionStatement",
-                    "src": "204:25:0"
+                    "src": "197:25:0"
                   }
                 ],
                 "id": 17,
                 "name": "Block",
-                "src": "166:70:0"
+                "src": "159:70:0"
               }
             ],
             "id": 18,
             "name": "FunctionDefinition",
-            "src": "152:84:0"
+            "src": "145:84:0"
           }
         ],
         "id": 19,
         "name": "ContractDefinition",
-        "src": "65:173:0"
+        "src": "65:166:0"
       }
     ],
     "id": 20,
     "name": "SourceUnit",
-    "src": "32:206:0"
+    "src": "32:199:0"
   },
   "compiler": {
     "name": "solc",
@@ -561,12 +545,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xe945D0aE60F560311777A1b62486FD25a5E43Bc6",
-      "transactionHash": "0x4a9d9fe2a7b259f55d87087ec2bf8317006d74902128a3c845f901b553b7e128"
+      "address": "0xc0240F29c3B81ca27fF9b01831Aa5AB2AD04AEFa",
+      "transactionHash": "0xdd89332fa91efd318ff718d467da18b61cc97053ad97e418f9041b27562521c6"
     }
   },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-04-29T02:03:13.649Z",
+  "updatedAt": "2021-04-29T11:39:31.480Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

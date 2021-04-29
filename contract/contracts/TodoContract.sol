@@ -9,7 +9,7 @@ contract TodoContract {
     UserContract public userContract;
 
     struct Todo {
-        address payable sender;
+        address sender;
         uint id;
         string todo;
         bool completed;
@@ -17,8 +17,8 @@ contract TodoContract {
 
     mapping(uint => Todo) public todos;
 
-    constructor(UserContract _userContractAddress) {
-        userContract = _userContractAddress;
+    constructor(UserContract _userContract) {
+        userContract = _userContract;
         createTodo("Welcome please take a quick tour of your todo app");
     }
 
@@ -38,14 +38,14 @@ contract TodoContract {
         _;
     }
 
-    function createTodo(string memory _todo) public onlyLoggedIn returns(bool) {
+    function createTodo(string memory _todo) public returns(bool) {
         todoCount ++;
         todos[todoCount] = Todo(msg.sender, todoCount, _todo, false);
         emit TodoCreated(todoCount, _todo, false);
         return true;
     }
 
-    function toggleCompleted(uint _id) public onlyLoggedIn returns(bool) {
+    function toggleCompleted(uint _id) public returns(bool) {
         Todo memory _todo = todos[_id];
         _todo.completed = !_todo.completed;
         todos[_id] = _todo;

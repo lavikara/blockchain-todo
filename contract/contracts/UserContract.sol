@@ -1,13 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0 <0.9.0;
 
+import "./MainContract.sol";
+
 contract UserContract {
     uint public userCount = 0;
-    address public userAccount;
+    MainContract public mainContract;
 
     struct User {
         uint id;
-        address payable userAddress;
+        address userAddress;
         string userName;
         bool active;
         bool isLoggedIn;
@@ -15,14 +17,14 @@ contract UserContract {
 
     mapping(address => User) public users;
 
-    constructor() {
-        userCount ++;
-        userAccount = msg.sender;
+    constructor(MainContract _mainContract) {
+        mainContract = _mainContract;
+        register("temi");
     }
 
     event Registered (
         uint id,
-        address payable userAddress,
+        address userAddress,
         string userName,
         bool active
     );
